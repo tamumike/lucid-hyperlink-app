@@ -1,3 +1,5 @@
+import PopupTemplate from "esri/PopupTemplate";
+
 export const system = {
     sites: {
         title: `{SiteName}`,
@@ -192,3 +194,39 @@ export const drillingInfo = {
                 <b>Latitude: </b>{surface_latitude}`
     }
 }
+
+let attachLink = (value) => {
+    
+    let link = value.toString() + "TEST";
+
+    return `${value}TEST`;
+    
+};
+
+export const hyperlink = {
+    facility: {
+        title: `{Name}`,
+        content: `<b>Link Type: </b>{LinkType}<br>
+                <b>System: </b>{SystemName}<br>
+                <b>AFE Link: </b>${attachLink("{Hyperlink_AFE}")}<br>
+                <b>Facilities Link: </b>{Hyperlink_Facilities}`
+    },
+    pipeline: {
+        title: `{Name}`,
+        content: `<b>Link Type: </b>{LinkType}<br>
+                <b>System: </b>{SystemName}<br>
+                <b>AFE Link: </b>{Hyperlink_AFE}<br>
+                <b>Alignments Link: </b>{Hyperlink_Alignments}<br>
+                <b>Construction Link: </b>{Hyperlink_Construction}` 
+    }
+
+};
+
+export const template = new PopupTemplate({
+    title: `{Name}`,
+    content: `<b>Link Type: </b>{LinkType}<br>
+            <b>System: </b>{SystemName}<br>
+            <b>AFE Link: </b>{Hyperlink_AFE:attachLink}<br>
+            <b>Facilities Link: </b>{Hyperlink_Facilities}`
+});
+

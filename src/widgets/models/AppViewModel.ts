@@ -102,16 +102,6 @@ class AppViewModel extends declared(Accessor) {
       sources: searchSources
     });
 
-    const print = new Print({
-      view: this.view,
-      printServiceUrl: "https://gisportal.lucid-energy.com/arcgis/rest/services/PrintLayouts/GPServer/Export%20Web%20Map"
-    });
-
-    const basemapGallery = new BaseMapGallery({
-      view: this.view,
-      activeBasemap: this.map.basemap
-    });
-
     const home = new Home({
       view: this.view
     });
@@ -121,10 +111,7 @@ class AppViewModel extends declared(Accessor) {
     this.view.ui.add(home, "top-right");
     this.view.ui.add(new Expand({content: search, expandTooltip: "Search"}), "top-right");
     this.view.ui.add(scalebar, "bottom-right");
-    this.view.ui.add(new Expand({content: print, expandTooltip: "Print"}), "top-right");
-    this.view.ui.add(new Expand({content: basemapGallery, expandTooltip: "Basemaps"}), "top-right");
-    
-  
+
   }
 }
 

@@ -1,5 +1,6 @@
 import MapImageLayer from "esri/layers/MapImageLayer";
 import EsriMap from "esri/Map";
+import PopupTemplate from "esri/PopupTemplate";
 
 import * as popups from "./popups";
 
@@ -137,7 +138,39 @@ export const meters = new MapImageLayer({
     visible: false
 });
 
+let attachLink = (value) => {
+    
+    let link = value.toString() + "TEST";
+
+    return `${value}TEST`;
+    
+};
+
+export const hyperlink = new MapImageLayer({
+    id: "Hyperlinks", 
+    url: "https://gisportal.lucid-energy.com/arcgis/rest/services/Hyperlink/MapServer",
+    sublayers: [{
+        id: 1,
+        popupEnabled: true,
+        popupTemplate: new PopupTemplate({
+            title: `{Name}`,
+            content: `<b>Link Type: </b>{LinkType}<br>
+                    <b>System: </b>{SystemName}<br>
+                    <b>Facilities Link: </b><a href="{Hyperlink_Facilities}" target="_blank"> More Info</a>`
+        }),
+        visible: true
+    }, {
+        id: 0,
+        popupEnabled: true,
+        popupTemplate: {
+            title: popups.hyperlink.pipeline.title,
+            content: popups.hyperlink.pipeline.content
+        },
+        visible: true
+    }]
+});
+
 export const map = new EsriMap({
     basemap: "streets",
-    layers: [surfaceOwnership, STR, systemLayer, meters]
+    layers: [surfaceOwnership, STR, systemLayer, hyperlink, meters]
 });
