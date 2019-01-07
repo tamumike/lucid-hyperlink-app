@@ -195,21 +195,12 @@ export const drillingInfo = {
     }
 }
 
-let attachLink = (value) => {
-    
-    let link = value.toString() + "TEST";
-
-    return `${value}TEST`;
-    
-};
-
 export const hyperlink = {
     facility: {
         title: `{Name}`,
         content: `<b>Link Type: </b>{LinkType}<br>
-                <b>System: </b>{SystemName}<br>
-                <b>AFE Link: </b>${attachLink("{Hyperlink_AFE}")}<br>
-                <b>Facilities Link: </b>{Hyperlink_Facilities}`
+        <b>System: </b>{SystemName}<br>
+        <b>Facilities Link: </b><a href="{Hyperlink_Facilities}" target="_blank"> More Info</a>`
     },
     pipeline: {
         title: `{Name}`,

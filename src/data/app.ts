@@ -153,10 +153,8 @@ export const hyperlink = new MapImageLayer({
         id: 1,
         popupEnabled: true,
         popupTemplate: new PopupTemplate({
-            title: `{Name}`,
-            content: `<b>Link Type: </b>{LinkType}<br>
-                    <b>System: </b>{SystemName}<br>
-                    <b>Facilities Link: </b><a href="{Hyperlink_Facilities}" target="_blank"> More Info</a>`
+            title: popups.hyperlink.facility.title,
+            content: popups.hyperlink.facility.content,
         }),
         visible: true
     }, {
