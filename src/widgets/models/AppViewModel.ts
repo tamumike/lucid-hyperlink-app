@@ -19,7 +19,7 @@ import {
   subclass
 } from "esri/core/accessorSupport/decorators";
 
-type SearchSource = esri.LocatorSource | esri.FeatureLayerSource;
+type SearchSource = esri.LocatorSearchSource | esri.FeatureLayerSearchSource;
 
 export interface AppParams {
   appName: string;
