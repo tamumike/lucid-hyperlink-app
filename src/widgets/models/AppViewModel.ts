@@ -48,14 +48,13 @@ class AppViewModel extends declared(Accessor) {
   onload() {
 
     const searchSources = [{
-      featureLayer: new FeatureLayer({
+      layer: new FeatureLayer({
           url: "https://gisportal.lucid-energy.com/arcgis/rest/services/Lucid_II_Lines/FeatureServer/0",
           outFields: ["*"]
       }),
       searchFields: ["LineName", "AFE"],
       displayField: "LineName",
       exactMatch: false,
-      outFields: ["*"],
       name: "Lucid Lines",
       placeholder: "Search Lines",
       maxResults: 6,
@@ -63,98 +62,91 @@ class AppViewModel extends declared(Accessor) {
       suggestionsEnabled: true,
       minSuggestCharacters: 0
     }, {
-      featureLayer: new FeatureLayer({
+      layer: new FeatureLayer({
         url: "https://gisportal.lucid-energy.com/arcgis/rest/services/HyperlinkNEW/MapServer/1",
         outFields: ["*"]
     }),
       searchFields: ["Name", "AFE"],
       displayField: "Name",
       exactMatch: false,
-      outFields: ["*"],
       name: "AFE Hyperlinks",
       maxResults: 6,
       maxSuggestions: 6,
       suggestionsEnabled: true,
       minSuggestCharacters: 0
     }, {
-      featureLayer: new FeatureLayer({
+      layer: new FeatureLayer({
         url: "https://gisportal.lucid-energy.com/arcgis/rest/services/HyperlinkNEW/MapServer/2",
         outFields: ["*"]
     }),
       searchFields: ["Name", "AFE"],
       displayField: "Name",
       exactMatch: false,
-      outFields: ["*"],
       name: "Alignments Hyperlinks",
       maxResults: 6,
       maxSuggestions: 6,
       suggestionsEnabled: true,
       minSuggestCharacters: 0
     }, {
-      featureLayer: new FeatureLayer({
+      layer: new FeatureLayer({
         url: "https://gisportal.lucid-energy.com/arcgis/rest/services/HyperlinkNEW/MapServer/3",
         outFields: ["*"]
     }),
       searchFields: ["Name", "AFE"],
       displayField: "Name",
       exactMatch: false,
-      outFields: ["*"],
       name: "Construction Hyperlinks",
       maxResults: 6,
       maxSuggestions: 6,
       suggestionsEnabled: true,
       minSuggestCharacters: 0
     }, {
-      featureLayer: new FeatureLayer({
+      layer: new FeatureLayer({
         url: "https://gisportal.lucid-energy.com/arcgis/rest/services/HyperlinkNEW/MapServer/4",
         outFields: ["*"]
     }),
       searchFields: ["Name", "AFE"],
       displayField: "Name",
       exactMatch: false,
-      outFields: ["*"],
       name: "Permits Hyperlinks",
       maxResults: 6,
       maxSuggestions: 6,
       suggestionsEnabled: true,
       minSuggestCharacters: 0
     }, {
-      featureLayer: new FeatureLayer({
+      layer: new FeatureLayer({
         url: "https://gisportal.lucid-energy.com/arcgis/rest/services/HyperlinkNEW/MapServer/5",
         outFields: ["*"]
     }),
       searchFields: ["TractName"],
       displayField: "TractName",
       exactMatch: false,
-      outFields: ["*"],
       name: "ROW Hyperlinks",
       maxResults: 6,
       maxSuggestions: 6,
       suggestionsEnabled: true,
       minSuggestCharacters: 0
     }, {
-      featureLayer: new FeatureLayer({
+      layer: new FeatureLayer({
           url: "https://gisportal.lucid-energy.com/arcgis/rest/services/Lucid_II_Facilities/MapServer/1",
           outFields: ["*"]
       }),
         searchFields: ["SiteName"],
         displayField: "SiteName",
         exactMatch: false,
-        outFields: ["*"],
         name: "Lucid Facilities",
         maxResults: 6,
         maxSuggestions: 6,
         suggestionsEnabled: true,
         minSuggestCharacters: 0
     }, {
-      featureLayer: new FeatureLayer({
+      layer: new FeatureLayer({
         url: "https://gisportal.lucid-energy.com/arcgis/rest/services/Meters_Search/MapServer/0",
         outFields: ["*"]
       }),
       searchFields: ["Meter_Name"],
       displayField: "Meter_Name",
       exactMatch: false,
-      outFields: ["*"],
       name: "Lucid Meters",
       maxResults: 6,
       maxSuggestions: 6,
