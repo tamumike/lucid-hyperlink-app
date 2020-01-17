@@ -19,14 +19,26 @@ export default class Layers extends Widget {
 
         let visible: string[] = [];
         let notVisible: string[] = [];
-        
+        let hyperlink: string[] = [];   // created a list for the hyperlink layers
+        let hyperlinkoff: string[] = [];
+
         map.layers.forEach((layer) => {
             
-            (layer.visible) ? visible.push(layer.id) : notVisible.push(layer.id);
+            const substr: string = 'Hyperlinks'; // substring to search for
+            // 1) Go through the layers and sort them into appropriate list
+ 
+            if (layer.id.indexOf(substr)  > -1) {
+            (layer.visible) ? hyperlink.push(layer.id) : hyperlinkoff.push(layer.id);
+
+            } else {
+
+                (layer.visible) ? visible.push(layer.id) : notVisible.push(layer.id);
+
+            }
             
         });
 
-        layersView.populateLayersList(visible, notVisible);
+        layersView.populateLayersList(visible, notVisible, hyperlink, hyperlinkoff);
         
     }
 

@@ -19,7 +19,7 @@ export const renderWidget = () => {
 
 };
 
-export const populateLayersList = (visible: string[], notVisible: string[]): void => {
+export const populateLayersList = (visible: string[], notVisible: string[], hyperlink: string[], hyperlinkoff: string[]): void => {
 
     visible.forEach((layer) => {
         
@@ -27,6 +27,17 @@ export const populateLayersList = (visible: string[], notVisible: string[]): voi
 
     });
 
+    hyperlink.forEach((layer) => {
+        
+        $(elements.layers.list).append(`<li class=${CSS.panel_obj.list_item}>${layer}</li>`);
+
+    });
+
+     hyperlinkoff.forEach((layer) => {
+        
+        $(elements.layers.list).append(`<li class="${CSS.panel_obj.list_item} placeholder">${layer}</li>`);
+
+    });
     notVisible.forEach((layer) => {
         
         $(elements.layers.list).append(`<li class="${CSS.panel_obj.list_item} placeholder">${layer}</li>`);

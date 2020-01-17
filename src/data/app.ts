@@ -138,37 +138,104 @@ export const meters = new MapImageLayer({
     visible: false
 });
 
-let attachLink = (value) => {
-    
-    let link = value.toString() + "TEST";
+export const hyperlinkFacility = new MapImageLayer({
+    id: "Facility - Hyperlinks", 
+    url: "https://gisportal.lucid-energy.com/arcgis/rest/services/HyperlinkNEW/MapServer",
+    sublayers: [{
+        id: 0,
+        popupEnabled: true,
+        popupTemplate: new PopupTemplate({
+            title: popups.hyperlink.Facility.title,
+            content: popups.hyperlink.Facility.content,
+        }),
+        title: "Hyperlinks - Facility",
+    }],
+    legendEnabled: true,
+    visible: true
+});
 
-    return `${value}TEST`;
-    
-};
-
-export const hyperlink = new MapImageLayer({
-    id: "Hyperlinks", 
-    url: "https://gisportal.lucid-energy.com/arcgis/rest/services/Hyperlink/MapServer",
+export const hyperlinkAFE = new MapImageLayer({
+    id: "AFE - Hyperlinks", 
+    url: "https://gisportal.lucid-energy.com/arcgis/rest/services/HyperlinkNEW/MapServer",
     sublayers: [{
         id: 1,
         popupEnabled: true,
-        popupTemplate: new PopupTemplate({
-            title: popups.hyperlink.facility.title,
-            content: popups.hyperlink.facility.content,
-        }),
-        visible: true
-    }, {
-        id: 0,
+        popupTemplate: {
+            title: popups.hyperlink.AFE.title,
+            content: popups.hyperlink.AFE.content
+        },
+        title: "Hyperlinks AFE",
+    }],
+    legendEnabled: true,
+    visible: false
+});
+
+export const hyperlinkAlignments = new MapImageLayer({
+    id: "Alignment - Hyperlinks", 
+    url: "https://gisportal.lucid-energy.com/arcgis/rest/services/HyperlinkNEW/MapServer",
+    sublayers: [{
+        id: 2,
         popupEnabled: true,
         popupTemplate: {
-            title: popups.hyperlink.pipeline.title,
-            content: popups.hyperlink.pipeline.content
+            title: popups.hyperlink.Alignments.title,
+            content: popups.hyperlink.Alignments.content
         },
-        visible: true
-    }]
+        title: "Hyperlinks Alignments",
+    }],
+    legendEnabled: true,
+    visible: true
+});
+
+export const hyperlinkConstruction = new MapImageLayer({
+    id: "Construction - Hyperlinks", 
+    url: "https://gisportal.lucid-energy.com/arcgis/rest/services/HyperlinkNEW/MapServer",
+    sublayers: [{
+        id: 3,
+        popupEnabled: true,
+        popupTemplate: {
+            title: popups.hyperlink.Construction.title,
+            content: popups.hyperlink.Construction.content
+        },
+        title: "Hyperlinks Construction",
+    }],
+    legendEnabled: true,
+    visible: true
+});
+
+export const hyperlinkPermits = new MapImageLayer({
+    id: "Permits - Hyperlinks", 
+    url: "https://gisportal.lucid-energy.com/arcgis/rest/services/HyperlinkNEW/MapServer",
+    sublayers: [{
+        id: 4,
+        popupEnabled: true,
+        popupTemplate: {
+            title: popups.hyperlink.Permits.title,
+            content: popups.hyperlink.Permits.content
+        },
+        title: "Hyperlinks Permits",
+    }],
+    legendEnabled: true,
+    visible: false
+});
+
+export const hyperlinkROW = new MapImageLayer({
+    id: "ROW - Hyperlinks",
+    url: "https://gisportal.lucid-energy.com/arcgis/rest/services/HyperlinkNEW/MapServer",
+    sublayers: [{
+        id: 5,
+        popupEnabled: true,
+        popupTemplate: {
+            title: popups.hyperlink.ROW.title,
+            content: popups.hyperlink.ROW.content
+        },
+        title: "Hyperlink ROW"
+    }],
+    legendEnabled: true,
+    visible: false
 });
 
 export const map = new EsriMap({
     basemap: "streets",
-    layers: [surfaceOwnership, STR, systemLayer, hyperlink, meters]
+    layers: [surfaceOwnership, STR, hyperlinkROW, systemLayer, hyperlinkFacility, hyperlinkAFE, 
+        hyperlinkAlignments, hyperlinkConstruction, hyperlinkPermits, meters]
 });

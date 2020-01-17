@@ -2,14 +2,14 @@ import PopupTemplate from "esri/PopupTemplate";
 
 export const system = {
     sites: {
-        title: `{SiteName}`,
-        content: `<b>Type: </b>{SiteType}<br>
-                <b>Status: </b>{OperationalStatus}<br>
+        title: "Facility Site : " + "{SiteName}",
+        content: `<b>Status: </b>{OperationalStatus}<br>
                 <b>Longitude: </b>{POINT_X}<br>
-                <b>Latitude: </b>{POINT_Y}`
-    },
+                <b>Latitude: </b>{POINT_Y}<br>
+                <img id="site_img" src="https://gisportal.lucid-energy.com/apps/images/SiteVessels/{SiteName}.png" />`        
+},
     lines: {
-        title: `{LineName}`,
+        title: ("Pipeline Info : ") + `{LineName}`,
         content: `<b>AFE:</b> {AFE}<br>
                 <b>Diameter: </b>{OutsideDiameter}<br>
                 <b>Nominal: </b>{NominalDiameter}<br>
@@ -196,19 +196,50 @@ export const drillingInfo = {
 }
 
 export const hyperlink = {
-    facility: {
-        title: `{Name}`,
+    Facility: {
+        title: ("Facility Links : ") + `{Name}`,
         content: `<b>Link Type: </b>{LinkType}<br>
         <b>System: </b>{SystemName}<br>
-        <b>Facilities Link: </b><a href="{Hyperlink_Facilities}" target="_blank"> More Info</a>`
+        <b>Facilities Link: </b>{Hyperlink_Facilities}`
     },
-    pipeline: {
-        title: `{Name}`,
+    AFE: {
+        title: ("AFE Links : ") + `{Name}`,
         content: `<b>Link Type: </b>{LinkType}<br>
+                <b>AFE#: </b>{AFE}<br>
                 <b>System: </b>{SystemName}<br>
-                <b>AFE Link: </b>{Hyperlink_AFE}<br>
-                <b>Alignments Link: </b>{Hyperlink_Alignments}<br>
+                <b>AFE Link: </b>{Hyperlink_AFE}`
+    },
+    Alignments: {
+        title: ("Alignment Links : ") + `{Name}`,
+        content: `<b>Link Type: </b>{LinkType}<br>
+                <b>AFE#: </b>{AFE}<br>
+                <b>System: </b>{SystemName}<br>
+                <b>Alignments Link: </b>{Hyperlink_Alignments}` 
+    },
+    Construction: {
+        title: ("Construction Links : ") + `{Name}`,
+        content: `<b>Link Type: </b>{LinkType}<br>
+                <b>AFE#: </b>{AFE}<br>
+                <b>System: </b>{SystemName}<br>
                 <b>Construction Link: </b>{Hyperlink_Construction}` 
+    },
+    Permits: {
+        title: ("Permit Links : ") + `{Name}`,
+        content: `<b>Link Type: </b>{LinkType}<br>
+                <b>AFE#: </b>{AFE}<br>
+                <b>System: </b>{SystemName}<br>
+                <b>Permits Link: </b>{Hyperlink_AFE}`
+    },
+    ROW: {
+        title: ("ROW Links : ") + `{TractName}`,
+        content: `<b>ROW Link: </b>{Hyperlink_ROW}<br>
+                    <b>Tract Type: </b>{TractType}<br>
+                    <b>Name: </b>{FeatureName}<br>
+                    <b>Category: </b>{FeatureCategory}<br>
+                    <b>Use: </b>{FeatureUse}<br>
+                    <b>Owner: </b>{Owner_Name}<br>
+                    <b>Asset Name: </b>{AssetName}<br>
+                    <b>Modified Date: </b>{ModifiedDate}<br>`
     }
 
 };
@@ -220,4 +251,3 @@ export const template = new PopupTemplate({
             <b>AFE Link: </b>{Hyperlink_AFE:attachLink}<br>
             <b>Facilities Link: </b>{Hyperlink_Facilities}`
 });
-

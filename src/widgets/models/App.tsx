@@ -60,6 +60,14 @@ export default class App extends declared(Widget) {
         zoom: 10,
         ui: {
             components: []
+        },
+        popup: {
+          dockEnabled: true,
+          dockOptions: {
+            buttonEnabled: true,
+            breakpoint: false,
+            position: "bottom-right"
+          }
         }
       });
     });
