@@ -233,13 +233,19 @@ export const hyperlink = {
     ROW: {
         title: ("ROW Links : ") + `{TractName}`,
         content: `<b>ROW Link: </b>{Hyperlink_ROW}<br>
-                    <b>Tract Type: </b>{TractType}<br>
-                    <b>Name: </b>{FeatureName}<br>
-                    <b>Category: </b>{FeatureCategory}<br>
-                    <b>Use: </b>{FeatureUse}<br>
-                    <b>Owner: </b>{Owner_Name}<br>
-                    <b>Asset Name: </b>{AssetName}<br>
-                    <b>Modified Date: </b>{ModifiedDate}<br>`
+        <b>Tract Type: </b>{TractType}<br>
+        <b>Name: </b>{FeatureName}<br>
+        <b>Category: </b>{FeatureCategory}<br>
+        <b>Use: </b>{FeatureUse}<br>
+        <b>Owner: </b>{Owner_Name}<br>
+        <b>Asset Name: </b>{AssetName}<br>
+        <b>Modified Date: </b>{ModifiedDate}`,
+        fieldInfos: [{
+            fieldName: "ModifiedDate",
+            format: {
+                dateFormat: 'short-date'
+            }
+        }]
     }
 
 };
@@ -251,3 +257,4 @@ export const template = new PopupTemplate({
             <b>AFE Link: </b>{Hyperlink_AFE:attachLink}<br>
             <b>Facilities Link: </b>{Hyperlink_Facilities}`
 });
+

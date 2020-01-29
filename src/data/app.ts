@@ -226,7 +226,8 @@ export const hyperlinkROW = new MapImageLayer({
         popupEnabled: true,
         popupTemplate: {
             title: popups.hyperlink.ROW.title,
-            content: popups.hyperlink.ROW.content
+            content: popups.hyperlink.ROW.content,
+            fieldInfos: popups.hyperlink.ROW.fieldInfos
         },
         title: "Hyperlink ROW"
     }],
